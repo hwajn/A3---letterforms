@@ -6,7 +6,8 @@ noFill();
 strokeWeight(.5);
 
   }
-
+//https://www.youtube.com/watch?v=kP-RkS70Lm8
+//https://p5js.org/reference/#/p5/curve
 function draw() {
 background(1000);
 translate(200,200);
