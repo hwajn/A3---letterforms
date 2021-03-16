@@ -2,77 +2,56 @@
 function setup() {
   createCanvas(1000, 1000);
   angleMode(DEGREES);
-noFill();
-strokeWeight(.5);
 
+stroke(0);
+noFill();
+strokeJoin(MITER);
   }
+
 //https://www.youtube.com/watch?v=kP-RkS70Lm8
-//https://p5js.org/reference/#/p5/curve
+
+
+
 function draw() {
+  
 background(1000);
-translate(200,200);
+translate(width/2,-20);
 
 push();
-stroke(0);
-rotate(20);
+strokeWeight(2);
 
 
-                        
+for (let i = 0; i < 5000; i++){
 
-                        for(let i = .000001; i < 40; i++){
+  beginShape();
+line(0,0,0,300);
+  endShape();
 
-
-                            let t = map(100, 300, width*300, -5, 5);
-                        
-                            curveTightness(t^2);
-
-                            beginShape();
-                          curveVertex(10, 100);
-                          curveVertex(0, 20);
-                          curveVertex(-10, 250);
-                          curveVertex(100, 350);
-                          
-                          curveVertex(-40, 340);
-                                                   
-                          endShape();
-
-
-                          shearY(2);
+scale(.9,1);
+translate(i*1,0);
+shearY(-1);
 
 
 
 
 
-
-                    
-
-                        
-                          }
-pop(); push();
-                          for(let i = .5; i < 90; i++){
-
-                      
-
-                            beginShape();
-                            line(150,350,-100,500);  
-                            shearY(-.3);  
+}
+pop();
+push();
+strokeWeight(.3);
+scale(.5,2);
+translate(50,-145);
+for (let i = 0; i < 10; i++){
 
 
-                  
-                  
+line(-50,300,340,300);
+scale(1,1);
+translate(i*1,-.00009);
+shearY(-.5);
 
 
-
-
-
-
-                    
-
-                        
-                          }
-                                                        
-                                        
-
+}    pop();                         
+                              
 }
 
 
