@@ -3,77 +3,75 @@ function setup() {
   createCanvas(1000, 1000);
   angleMode(DEGREES);
 noFill();
-strokeWeight(.05);
-    
+strokeWeight(.5);
+
   }
 
 function draw() {
-background(200);
-translate(100,100);
-push();
-stroke(0);
-  
-
-  for(let i = 1; i < 540; i++){
-
-
-    quad(38, 31, 106, 90, 69, 103, 30, 100);
-translate(0,.8);
-
-
-  }
-  
-
-pop();
-
-
-push();
-stroke(145, 145, 145);
-translate(0,500);
-for(let i = 1; i < 1300; i++){
-
-
-  quad(38, 31, 86, 20, 69, 63, 30, 76);
-rotate(-.1);
-
-}
-pop();
-
-
-
+background(1000);
+translate(200,200);
 
 push();
 stroke(0);
-translate(0,500.5);
+rotate(20);
+
+
+                        
+
+                        for(let i = .000001; i < 40; i++){
+
+
+                            let t = map(100, 300, width*300, -5, 5);
+                        
+                            curveTightness(t^2);
+
+                            beginShape();
+                          curveVertex(10, 100);
+                          curveVertex(0, 20);
+                          curveVertex(-10, 250);
+                          curveVertex(100, 350);
+                          
+                          curveVertex(-40, 340);
+                                                   
+                          endShape();
+
+
+                          shearY(2);
 
 
 
-for(let i = 1; i < 300; i++){
-
-
-  quad(100, 101, 106, 20, 69, 63, 30, 76);
-  translate(.8,0)
-
-}
-pop();
 
 
 
+                    
+
+                        
+                          }
+pop(); push();
+                          for(let i = .5; i < 90; i++){
+
+                      
+
+                            beginShape();
+                            line(150,350,-100,500);  
+                            shearY(-.3);  
 
 
-push();
-stroke(100);
-translate(170,630);
-rotate(140);
-for(let i = 1; i < 550; i++){
+                  
+                  
 
 
-  quad(18, 51, 36, 60, 29, 10, 10, 10);
-rotate(.11);
-translate(.1,1);
 
-}
-pop();
+
+
+
+                    
+
+                        
+                          }
+                                                        
+                                        
+
 }
 
 
