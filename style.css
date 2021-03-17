@@ -3,3 +3,11 @@ html, body {
     padding: 0;
   }
   
+  @font-face {
+    font-family: grotesk;
+    src: url(grotesk.ttf);
+ }
+ 
+ * {
+    font-family: grotesk;
+ }
