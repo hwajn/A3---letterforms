@@ -6,7 +6,7 @@ let points;
 let word = "L";
 let x;
 let y;
-let size = 1020;
+let size = 820;
 
 
 function preload(){
@@ -16,14 +16,14 @@ function preload(){
 function setup() {
   createCanvas(1000, 1000);
   x = (width/2) -300;
-  y = (height/2)+400;
+  y = (height/2)+250;
   points = birch.textToPoints(word, x, y, size);
   
   
 }
 
 function draw() {
-  background(0);
+  background(1000);
   
   textFont(birch);
   textSize(size);
@@ -48,19 +48,17 @@ function draw() {
     
     noFill();
 
-
-    stroke(1000);
-    let steps = 100;
+    stroke(255, 102, 0);
+    let steps = 200;
     for (let i = 0; i <= steps; i++) {
-      let t = i*r / steps;
+      let t = i / steps;
 
       let tx = bezierTangent(85, r, r, 15, t);
-      let ty = bezierTangent(r, r*10, 90, 80, t);
+      let ty = bezierTangent(20, 10, 90, r, t);
       let a = atan2(ty, tx);
       a -= HALF_PI;
-      rect(ny,nx,pt.x,pt.y);
+      rect(pt.x,pt.y,pt.x/3,pt.y/5);
     }
   }
-  
   
 }
