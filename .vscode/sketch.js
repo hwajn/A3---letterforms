@@ -1,64 +1,92 @@
 //https://editor.p5js.org/aferriss/sketches/BJTw7MJG7
+//https://p5js.org/reference/#/p5.Font/textToPoints
+//https://p5js.org/reference/#/p5/random
 
 
 let birch;
+let bounds;
 let points;
 let word = "L";
-let x;
-let y;
-let size = 820;
+let size = 10;
+
 
 
 function preload(){
   birch = loadFont('grotesk.ttf');
-}
-
-function setup() {
-  createCanvas(1000, 1000);
-  x = (width/2) -300;
-  y = (height/2)+250;
-  points = birch.textToPoints(word, x, y, size);
-  
-  
-}
-
-function draw() {
-  background(1000);
   
   textFont(birch);
   textSize(size);
-  fill(220);
-  // text(word, x, y);
-  
-  for(let i = 0; i < points.length; i++){
-    let r = random(25);
-    let c = noise(i + frameCount * 0.01 ) * 255;
-    fill(50, 50,50);
+}
+
+function setup() {
+  createCanvas(1000, 2000);
 
 
+  points = birch.textToPoints('L', 0, 0, size, {
+    sampleFactor: 5,
+    simplifyThreshold: 0
     
+  });  
+  stroke(.5);
+  noFill();
+  
+  bounds = birch.textBounds(' L ', 0, 0, size);
+
+}
+
+function draw() {
+  background(500);
+
+  textFont(birch);
+  textSize(size);
+  scale(.7,.3);
+
+  beginShape();
+  
+  translate(100+(-bounds.x * width / bounds.w), -bounds.y * height / bounds.h);
+  for (let i = 0; i < points.length; i++) {
+    let p = points[i];
+    let r = random(50);
+    let c = noise(i + frameCount) * 300;
+
+
+
     let pt = points[i];
     
-    let nx = noise(i * 10.1 + 0.01) * r - 5.0;
-    let ny = noise(i * 10.2 + 0.01) * r - 5.0;
-
-    // pt.x += noise(i * 10.1 + frameCount * 0.01) * 2 - 1.0;
-    // pt.y += noise(i * 10.2 + frameCount * 0.01) * 2 - 1.0;
+    let nx = noise(i * 10) * r - 3.0;
+    let ny = noise(i * 10) * r - 3.0;
     
     
-    noFill();
 
-    stroke(255, 102, 0);
-    let steps = 200;
+    let steps = 300;
     for (let i = 0; i <= steps; i++) {
       let t = i / steps;
 
-      let tx = bezierTangent(85, r, r, 15, t);
-      let ty = bezierTangent(20, 10, 90, r, t);
+      let tx = bezierTangent(850, r*i, r, 15, t);
+      let ty = bezierTangent(tan(r), 5, 60, r, t*r);
       let a = atan2(ty, tx);
-      a -= HALF_PI;
-      rect(pt.x,pt.y,pt.x/3,pt.y/5);
-    }
+      
+      a -= PI;
+
+      vertex(
+        p.x * width / bounds.w +
+          tan(r * p.y / bounds.h) * width / 3000,
+        p.y * height / (bounds.h)
+      );
+
+    translate(.01,.01);
+
   }
   
-}
+  endShape(CLOSE);
+
+  
+
+
+
+ 
+    }
+    
+  }
+  
+s
