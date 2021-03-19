@@ -8,12 +8,7 @@ let bounds;
 let points;
 let word = "L";
 let size = 10;
-const Y_AXIS = 1;
-const X_AXIS = 2;
-let b1, b2, c1, c2;
 
-c1 = color(204, 102, 0);
-c2 = color(0, 102, 153);
 
 
 
@@ -42,11 +37,11 @@ function setup() {
 
 function draw() {
  background(1000);
-translate(300,0);
+translate(300,150);
   textFont(birch);
   textSize(size);
   scale(.7);
-  blendMode(BURN);
+  blendMode(DIFFERENCE);
   
 
 
@@ -81,7 +76,7 @@ pop();
 
 pop();
 push();
-fill(11,255,1);
+fill(245, 239, 66);
 translate(25,20);
 
 ellipse(
