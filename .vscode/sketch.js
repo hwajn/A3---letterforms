@@ -48,7 +48,7 @@ translate(300,150);
 
 
   
-  fill(254,0,246);
+  fill(245, 78, 66);
   beginShape();
   translate(-bounds.x * width / bounds.w, -bounds.y * height / bounds.h);
   for (let i = 0; i < points.length; i++) {
@@ -63,7 +63,7 @@ translate(300,150);
 
 pop();
 push();
-fill(253,254,2);
+fill(66, 69, 245);
 translate(15,10);
 
 ellipse(
