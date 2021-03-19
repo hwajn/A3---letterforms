@@ -8,6 +8,12 @@ let bounds;
 let points;
 let word = "L";
 let size = 10;
+const Y_AXIS = 1;
+const X_AXIS = 2;
+let b1, b2, c1, c2;
+
+c1 = color(204, 102, 0);
+c2 = color(0, 102, 153);
 
 
 
@@ -19,74 +25,75 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(1000, 2000);
-
+  createCanvas(1000, 1000);
+  
 
   points = birch.textToPoints('L', 0, 0, size, {
-    sampleFactor: 5,
+    sampleFactor: 100,
     simplifyThreshold: 0
     
   });  
-  stroke(.5);
-  noFill();
+  noStroke();
+  
   
   bounds = birch.textBounds(' L ', 0, 0, size);
 
 }
 
 function draw() {
-  background(500);
-
+ background(1000);
+translate(300,0);
   textFont(birch);
   textSize(size);
-  scale(.7,.3);
-
-  beginShape();
+  scale(.7);
+  blendMode(BURN);
   
-  translate(100+(-bounds.x * width / bounds.w), -bounds.y * height / bounds.h);
+
+
+
+
+  
+  fill(254,0,246);
+  beginShape();
+  translate(-bounds.x * width / bounds.w, -bounds.y * height / bounds.h);
   for (let i = 0; i < points.length; i++) {
     let p = points[i];
-    let r = random(50);
-    let c = noise(i + frameCount) * 300;
-
-
-
-    let pt = points[i];
     
-    let nx = noise(i * 10) * r - 3.0;
-    let ny = noise(i * 10) * r - 3.0;
-    
-    
+    ellipse(
+      p.x * width / bounds.w +
+        tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
+      p.y * height / bounds.h,10,10
+    );
+    push();
 
-    let steps = 300;
-    for (let i = 0; i <= steps; i++) {
-      let t = i / steps;
+pop();
+push();
+fill(253,254,2);
+translate(15,10);
 
-      let tx = bezierTangent(850, r*i, r, 15, t);
-      let ty = bezierTangent(tan(r), 5, 60, r, t*r);
-      let a = atan2(ty, tx);
-      
-      a -= PI;
-
-      vertex(
-        p.x * width / bounds.w +
-          tan(r * p.y / bounds.h) * width / 3000,
-        p.y * height / (bounds.h)
-      );
-
-    translate(.01,.01);
-
-  }
-  
-  endShape(CLOSE);
-
-  
+ellipse(
+  p.x * width / bounds.w +
+    tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
+  p.y * height / bounds.h,10,10
+);
+pop();
 
 
+pop();
+push();
+fill(11,255,1);
+translate(25,20);
 
- 
+ellipse(
+  p.x * width / bounds.w +
+    tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
+  p.y * height / bounds.h,10,10
+);
+pop();
+    }
+
+
     }
     
-  }
+
   
-s
