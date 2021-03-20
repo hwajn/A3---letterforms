@@ -1,8 +1,11 @@
 //https://editor.p5js.org/aferriss/sketches/BJTw7MJG7
 //https://p5js.org/reference/#/p5.Font/textToPoints
 //https://p5js.org/reference/#/p5/random
+//https://idmnyu.github.io/p5.js-image/Filters/index.html
 
 
+
+//import font 
 let birch;
 let bounds;
 let points;
@@ -24,7 +27,7 @@ function preload(){
   textSize(size);
   
 }
-
+//converting font outline into points
 function setup() {
   createCanvas(1000, 1000);
   
@@ -43,7 +46,7 @@ function setup() {
 
 
 
-
+//adding undulation and colour to the points 
 function draw() {
 
   
