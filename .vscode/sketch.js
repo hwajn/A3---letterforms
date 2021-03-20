@@ -22,6 +22,7 @@ function preload(){
   
   textFont(birch);
   textSize(size);
+  
 }
 
 function setup() {
@@ -40,21 +41,25 @@ function setup() {
 
 }
 
+
+
+
 function draw() {
- background(1000);
-translate(300,100);
-  textFont(birch);
-  textSize(size);
-  scale(.7);
 
   
 
-
-
-
   
-  fill(255, 255, 3);
+      background(1000);
+      translate(300,100);
+        textFont(birch);
+        textSize(size);
+        scale(.7);
+
+
+
+// purple layer
   blendMode(BURN);
+  fill(112, 0, 138,50);
   beginShape();
   translate(-bounds.x * width / bounds.w, -bounds.y * height / bounds.h);
   for (let i = 0; i < points.length; i++) {
@@ -65,54 +70,50 @@ translate(300,100);
         tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
       p.y * height / bounds.h,10,10
     );
-    push();
+
 
 pop();
-push();
-blendMode(DIFFERENCE);
-fill(255, 30, 0);
-translate(25,20);
 
+// hot pink layer
+push();
+fill(254,0,246,50);
+translate(15,10);
+blendMode(OVERLAY);
 ellipse(
   p.x * width / bounds.w +
     tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
   p.y * height / bounds.h,10,10
 );
 pop();
+
+
+
+// green layer
 push();
-fill(0, 255, 238);
+fill(11,255,1);
+translate(35,30);
 blendMode(BURN);
-translate(15,10);
-
 ellipse(
   p.x * width / bounds.w +
     tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
   p.y * height / bounds.h,10,10
 );
 pop();
+
 
 push();
-fill(255, 30, 0);
-blendMode(EXCLUSION);
-translate(15,10);
-
+fill(11,255,1,50);
+translate(35,30);
+blendMode(SCREEN, 5);
 ellipse(
   p.x * width / bounds.w +
     tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
-  p.y * height / bounds.h,10,10
+  p.y * height / bounds.h,5,5
 );
 pop();
 
+pop();
+
+}  }
 
 
-
-
-
-
-    }
-
-
-    }
-    
-
-  
