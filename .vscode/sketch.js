@@ -8,7 +8,12 @@ let bounds;
 let points;
 let word = "L";
 let size = 10;
+const Y_AXIS = 1;
+const X_AXIS = 2;
+let b1, b2, c1, c2;
 
+c1 = color(204, 102, 0);
+c2 = color(0, 102, 153);
 
 
 
@@ -37,18 +42,19 @@ function setup() {
 
 function draw() {
  background(1000);
-translate(300,150);
+translate(300,100);
   textFont(birch);
   textSize(size);
   scale(.7);
-  blendMode(DIFFERENCE);
-  
-
-
-
 
   
-  fill(245, 78, 66);
+
+
+
+
+  
+  fill(255, 255, 3);
+  blendMode(BURN);
   beginShape();
   translate(-bounds.x * width / bounds.w, -bounds.y * height / bounds.h);
   for (let i = 0; i < points.length; i++) {
@@ -63,7 +69,31 @@ translate(300,150);
 
 pop();
 push();
-fill(66, 69, 245);
+blendMode(DIFFERENCE);
+fill(255, 30, 0);
+translate(25,20);
+
+ellipse(
+  p.x * width / bounds.w +
+    tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
+  p.y * height / bounds.h,10,10
+);
+pop();
+push();
+fill(0, 255, 238);
+blendMode(BURN);
+translate(15,10);
+
+ellipse(
+  p.x * width / bounds.w +
+    tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
+  p.y * height / bounds.h,10,10
+);
+pop();
+
+push();
+fill(255, 30, 0);
+blendMode(EXCLUSION);
 translate(15,10);
 
 ellipse(
@@ -74,17 +104,11 @@ ellipse(
 pop();
 
 
-pop();
-push();
-fill(245, 239, 66);
-translate(25,20);
 
-ellipse(
-  p.x * width / bounds.w +
-    tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
-  p.y * height / bounds.h,10,10
-);
-pop();
+
+
+
+
     }
 
 
