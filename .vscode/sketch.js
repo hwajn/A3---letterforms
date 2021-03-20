@@ -55,7 +55,7 @@ function draw() {
         textSize(size);
         scale(.7);
 
-
+        
 
 // purple layer
   blendMode(BURN);
@@ -74,43 +74,24 @@ function draw() {
 
 pop();
 
-// hot pink layer
-push();
-fill(254,0,246,50);
-translate(15,10);
-blendMode(OVERLAY);
-ellipse(
-  p.x * width / bounds.w +
-    tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
-  p.y * height / bounds.h,10,10
-);
-pop();
+
 
 
 
 // green layer
 push();
 fill(11,255,1);
-translate(35,30);
-blendMode(BURN);
+translate(15,15);
+
+
 ellipse(
   p.x * width / bounds.w +
-    tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
+    tan(20 * p.y / bounds.h + millis() / 10) * width / 30,
   p.y * height / bounds.h,10,10
 );
 pop();
 
 
-push();
-fill(11,255,1,50);
-translate(35,30);
-blendMode(SCREEN, 5);
-ellipse(
-  p.x * width / bounds.w +
-    tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
-  p.y * height / bounds.h,5,5
-);
-pop();
 
 pop();
 
