@@ -11,12 +11,7 @@ let bounds;
 let points;
 let word = "L";
 let size = 10;
-const Y_AXIS = 1;
-const X_AXIS = 2;
-let b1, b2, c1, c2;
 
-c1 = color(204, 102, 0);
-c2 = color(0, 102, 153);
 
 
 
@@ -25,12 +20,13 @@ function preload(){
   
   textFont(birch);
   textSize(size);
+
   
 }
 //converting font outline into points
 function setup() {
   createCanvas(1000, 1000);
-  
+  background(200);
 
   points = birch.textToPoints('L', 0, 0, size, {
     sampleFactor: 100,
@@ -42,6 +38,7 @@ function setup() {
   
   bounds = birch.textBounds(' L ', 0, 0, size);
 
+
 }
 
 
@@ -52,13 +49,15 @@ function draw() {
   
 
   
-      background(1000);
-      translate(300,100);
+background(255);
+      translate(350,150);
         textFont(birch);
         textSize(size);
         scale(.7);
-
-        
+        push();
+rect(-500,-100,2000,2000)
+fill(11,255,1);
+pop();
 
 // purple layer
   blendMode(BURN);
@@ -73,7 +72,6 @@ function draw() {
         tan(20 * p.y / bounds.h + millis() / 1000) * width / 30,
       p.y * height / bounds.h,10,10
     );
-
 
 pop();
 
@@ -92,12 +90,19 @@ ellipse(
     tan(20 * p.y / bounds.h + millis() / 10) * width / 30,
   p.y * height / bounds.h,10,10
 );
+
+
+ellipse(
+0,0,100,100
+);
 pop();
 
 
 
-pop();
+
+
 
 }  }
+
 
 
